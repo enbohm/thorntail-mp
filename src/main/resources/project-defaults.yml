@@ -1,0 +1,5 @@
+swarm:
+  deployment:
+    thorntail-mp.war:
+      jaxrs:
+        application-path: /thorntail
