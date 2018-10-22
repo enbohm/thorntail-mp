@@ -13,6 +13,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <io.thorntail>2.2.0.Final</io.thorntail>
     <google.error_prone.version>2.1.1</google.error_prone.version>
+    <arquillian.version>1.2.0.Final</arquillian.version>
   </properties>
 
   <dependencyManagement>
@@ -23,6 +24,13 @@
         <version>${io.thorntail}</version>
         <scope>import</scope>
         <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.arquillian</groupId>
+        <artifactId>arquillian-bom</artifactId>
+        <version>${arquillian.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -70,13 +78,6 @@
   </build>
 
   <dependencies>
-    <!-- Java EE 7 dependency -->
-    <dependency>
-      <groupId>javax</groupId>
-      <artifactId>javaee-api</artifactId>
-      <version>7.0</version>
-      <scope>provided</scope>
-    </dependency>
 
     <!-- WildFly Swarm Fractions -->
     <dependency>
@@ -99,7 +100,24 @@
       <groupId>io.thorntail</groupId>
       <artifactId>jaxrs-jaxb</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>arquillian</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- Brought in via Arquillian BOM, see dependencyManagement section 
+      above -->
+    <dependency>
+      <groupId>org.jboss.arquillian.junit</groupId>
+      <artifactId>arquillian-junit-container</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
 </project>
-
